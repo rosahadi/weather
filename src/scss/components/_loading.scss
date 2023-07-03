@@ -1,0 +1,23 @@
+.loading {
+  position: absolute;
+  display: grid;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $background;
+  place-items: center;
+  z-index: 1;
+  display: none;
+
+  &::before {
+    content: '';
+    transform: translateY(-50%);
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 4px solid $on-background;
+    border-radius: $radius-circle;
+    border-block-start-color: transparent;
+    animation: loading 500ms linear infinite;
+  }
+}

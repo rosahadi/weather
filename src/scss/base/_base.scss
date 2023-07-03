@@ -1,0 +1,89 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+img,
+span,
+input,
+button {
+  display: block;
+}
+
+input {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+sub {
+  vertical-align: baseline;
+}
+
+sup {
+  vertical-align: top;
+}
+
+sub,
+sup {
+  font-size: 0.9em;
+}
+
+:focus-visible {
+  outline: 2px solid $white;
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: $white-alpha-8;
+}
+
+::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $white-alpha-20;
+  border-radius: $radius-pill;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $white-alpha-40;
+}

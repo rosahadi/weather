@@ -1,0 +1,17 @@
+.btn-primary {
+  background-color: $primary;
+  color: $on-primary;
+  height: 4.7rem;
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+  padding-inline: 1.6rem;
+  border-radius: $radius-pill;
+}
+
+.btn-primary[disabled] {
+  background-color: $outline;
+  color: $on-surface-variant;
+  cursor: not-allowed;
+}

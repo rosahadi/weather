@@ -1,0 +1,57 @@
+.container {
+  max-width: 160rem;
+  width: 100%;
+  margin-inline: auto;
+  padding: 1.6rem;
+}
+
+.card {
+  background-color: $surface;
+  color: $on-surface;
+
+  &__lg {
+    padding: 2.2rem;
+    border-radius: $radius-28;
+  }
+
+  &__sm {
+    padding: 1.6rem;
+    border-radius: $radius-16;
+  }
+}
+
+.fade-in {
+  animation: fade-in 250ms ease forwards;
+}
+
+@media (min-width: $bp-medium) {
+  .container {
+    padding: 2.4rem;
+  }
+
+  .card__lg {
+    padding: 2.4rem;
+  }
+
+  .card__sm {
+    padding: 2rem;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+  }
+}
+
+@media (min-width: $bp-large) {
+  .container {
+    padding: 4rem;
+  }
+
+  .card__lg {
+    padding: 3.6rem;
+  }
+
+  .card__sm {
+    padding: 2.4rem;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+  }
+}

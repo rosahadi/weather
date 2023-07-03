@@ -1,0 +1,38 @@
+.icon-btn {
+  background-color: $white-alpha-8;
+  height: 4.7rem;
+  width: 4.7rem;
+  display: grid;
+  place-items: center;
+  border-radius: $radius-circle;
+}
+
+.has-state {
+  position: relative;
+}
+
+.has-state:hover {
+  box-shadow: $shadow-1;
+}
+
+.has-state:is(:focus, :focus-visible) {
+  box-shadow: none;
+}
+
+.has-state::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: circle(100% at 50% 50%);
+  border-radius: inherit;
+  transition: $transition;
+}
+
+.has-state:hover::before {
+  background-color: $white-alpha-4;
+}
+
+.has-state:is(:focus, :focus-visible)::before {
+  background-color: $white-alpha-8;
+  animation: circle-expand 300ms ease forwards;
+}

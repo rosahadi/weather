@@ -1,0 +1,240 @@
+.header .btn-primary .span {
+  display: none;
+}
+
+.logo img {
+  width: auto;
+  height: 3.3rem;
+}
+
+.header .container,
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header .container {
+  justify-content: space-between;
+}
+
+.header .btn-primary {
+  padding-inline: 1.1rem;
+}
+
+.header-actions {
+  gap: 1.5rem;
+}
+
+.search {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  background-color: $surface;
+  color: $on-surface;
+  clip-path: circle(4% at calc(100% - 10.2rem) 7.5%);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 4;
+  transition: clip-path 500ms ease;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    clip-path: circle(140% at 100% 50%);
+  }
+
+  &__wrapper {
+    border-block-end: 1px solid $outline;
+    position: relative;
+  }
+
+  &__wrapper > .ph-magnifying-glass {
+    display: none;
+  }
+
+  &__wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.6rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: 3px solid $on-surface;
+    border-block-start-color: transparent;
+    border-radius: $radius-circle;
+    animation: loading 500ms linear infinite;
+    display: none;
+  }
+
+  &__wrapper:has(.searching)::before {
+    display: block;
+  }
+
+  &__input {
+    outline: none;
+    height: 8rem;
+    line-height: 8rem;
+    padding-inline: 5.8rem 2rem;
+  }
+
+  &__input::placeholder {
+    color: $on-surface-variant-2;
+  }
+
+  &__input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  &__wrapper .leading-icon {
+    position: absolute;
+    top: 50%;
+    left: 2.8rem;
+    transform: translate(-50%, -50%);
+  }
+
+  &__wrapper .icon-btn {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  &__result--list {
+    padding-block: 0.8rem 2rem;
+  }
+
+  &__result--item {
+    position: relative;
+    height: 5.6rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.6rem;
+    padding-inline: 1.6rem 2.4rem;
+
+    & :is(.ph, .search__result--item-subtitle) {
+      color: $on-surface-variant;
+    }
+
+    & &-link {
+      position: absolute;
+      inset: 0;
+      box-shadow: none;
+    }
+  }
+}
+
+@media (min-width: $bp-medium) {
+  .search {
+    clip-path: circle(3% at calc(100% - 27.6rem) 9%);
+  }
+
+  .header-actions {
+    gap: 2.4rem;
+  }
+
+  .header .btn-primary {
+    padding-inline: 16px 24px;
+  }
+
+  .header .btn-primary .span {
+    display: block;
+  }
+}
+
+@media (min-width: $bp-large) {
+  .header {
+    position: relative;
+    height: 12rem;
+    z-index: 4;
+  }
+
+  .header .logo img {
+    width: auto;
+    height: 4.1rem;
+  }
+
+  .header .icon-btn {
+    display: none;
+  }
+
+  .header .container {
+    padding-block: 0;
+    height: 100%;
+  }
+
+  .search,
+  .search.active {
+    all: unset;
+    display: block;
+    position: relative;
+    width: 54rem;
+    animation: none;
+  }
+
+  .search {
+    &__wrapper {
+      border-bottom: none;
+      display: flex;
+      align-items: center;
+
+      & > .ph-magnifying-glass {
+        display: block;
+      }
+    }
+
+    &__input,
+    &__result--list {
+      background-color: $surface;
+    }
+
+    &__input {
+      height: 5.6rem;
+      border-radius: $radius-28;
+    }
+
+    &__result,
+    &:not(:focus-within) &__result {
+      display: none;
+    }
+
+    &:focus-within &__result.active {
+      display: block;
+    }
+
+    &:has(.search__result.active):focus-within &__input {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &__result--list {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      max-height: 36rem;
+      border-radius: 0 0 $radius-28 $radius-28;
+      border-block-start: 1px solid $outline;
+      overflow-y: auto; // For FireFox
+      overflow-y: overlay;
+    }
+
+    &__result--list:empty {
+      min-height: 12rem;
+    }
+
+    &__result--list {
+      max-height: 12rem;
+    }
+
+    &:is(:hover, :has(.search__result--list):hover) {
+      filter: drop-shadow($shadow-1);
+    }
+
+    &:is(:focus-within, :has(.search__result--list):focus-within) {
+      filter: drop-shadow($shadow-2);
+    }
+  }
+}

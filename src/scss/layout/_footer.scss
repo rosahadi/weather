@@ -1,0 +1,23 @@
+.footer,
+.footer .body-3:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  color: $on-surface-variant;
+  text-align: center;
+  gap: 1.2rem 2.4rem;
+  margin-block-start: 2.8rem;
+  display: none;
+}
+
+.fade-in .footer {
+  display: flex;
+}
+
+.footer .body-3:last-child {
+  gap: 1.6rem;
+}
