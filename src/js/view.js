@@ -92,6 +92,13 @@ searchInput.addEventListener('input', function () {
             searchResult.classList.remove('active');
             const target = event.currentTarget.getAttribute('href');
             window.location.href = target;
+
+            // Manually reload the page
+            location.reload();
+
+            // Clear input and search result list
+            searchInput.value = '';
+            searchResult.innerHTML = '';
           });
 
           list.appendChild(searchItem);
@@ -104,10 +111,9 @@ searchInput.addEventListener('input', function () {
 // Add event listener to the search result element
 searchResult.addEventListener('click', function (e) {
   if (e.target.classList.contains('search__result--item-link')) {
-    setTimeout(toggleSearch, 300);
-    // Clear input and search result list
-    searchInput.value = '';
-    searchResult.innerHTML = '';
+    loading.style.display = 'grid';
+    // searchView.classList.remove('active');
+    setTimeout(() => toggleSearch(), 300);
   }
 });
 
