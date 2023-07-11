@@ -38,7 +38,7 @@
   opacity: 0;
   visibility: hidden;
   z-index: 4;
-  transition: clip-path 500ms ease;
+  transition: clip-path 800ms ease;
 
   &.active {
     visibility: visible;
@@ -99,6 +99,7 @@
   &__wrapper .icon-btn {
     background-color: transparent;
     box-shadow: none;
+    backface-visibility: hidden;
   }
 
   &__result--list {
@@ -118,7 +119,7 @@
       color: $on-surface-variant;
     }
 
-    & &-link {
+    &-link {
       position: absolute;
       inset: 0;
       box-shadow: none;
@@ -225,8 +226,8 @@
       min-height: 12rem;
     }
 
-    &__result--list {
-      max-height: 12rem;
+    &__result--list::-webkit-scrollbar-button {
+      height: 2rem;
     }
 
     &:is(:hover, :has(.search__result--list):hover) {

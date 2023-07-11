@@ -22,6 +22,9 @@
 
     <link rel="stylesheet" href="scss/main.scss" />
 
+    <script type="module" src="js/view.js"></script>
+    <script type="module" src="js/controller.js"></script>
+
     <title>Weather</title>
   </head>
   <body>
@@ -45,37 +48,28 @@
             <button
               class="icon-btn leading-icon has-state"
               aria-label="close search"
+              data-search-toggler
             >
               <i class="ph ph-arrow-left"></i>
             </button>
           </div>
 
-          <div class="search__result">
-            <ul class="search__result--list">
-              <li class="search__result--item">
-                <i class="ph ph-map-pin"></i>
-                <div>
-                  <p class="search__result--item-title">New York</p>
-                  <p class="label-2 search__result--item-subtitle">
-                    State of New York, USA
-                  </p>
-                </div>
-                <a
-                  href="#"
-                  class="search__result--item-link has-state"
-                  data-search-toggler
-                ></a>
-              </li>
-            </ul>
-          </div>
+          <div class="search__result"></div>
         </div>
 
         <div class="header-actions">
-          <button class="icon-btn has-state" aria-label="open search">
+          <button
+            class="icon-btn has-state"
+            aria-label="open search"
+            data-search-toggler
+          >
             <i class="ph ph-magnifying-glass icon"></i>
           </button>
 
-          <a href="#/current-location" class="btn-primary has-state"
+          <a
+            href="#/current-location"
+            class="btn-primary has-state"
+            data-current-location-btn
             ><i class="ph ph-crosshair"></i>
             <span class="span">Current Location</span>
           </a>
@@ -87,137 +81,16 @@
       <article class="container" data-container>
         <div class="left-content">
           <!-- Current weather -->
-          <section class="section current-weather" aria-label="current weather">
-            <div class="card card__lg current-weather__card">
-              <h2 class="title-2 card-title">Now</h2>
-              <div class="wrapper">
-                <p class="heading temperature">
-                  20<span class="entity">&#8451;</span>
-                </p>
-                <img
-                  src="images/weather-icons/02n.png"
-                  width="72"
-                  height="72"
-                  alt="overcast clouds"
-                  class="current-weather__icon"
-                />
-              </div>
-              <p class="body-3">Overcast clouds</p>
-
-              <ul class="current-weather__details">
-                <li class="current-weather__details--list">
-                  <i class="ph ph-calendar-blank"></i>
-                  <p class="title-3 current-weather__details--text">
-                    Friday 17, Feb
-                  </p>
-                </li>
-                <li class="current-weather__details--list">
-                  <i class="ph ph-map-pin"></i>
-                  <p class="title-3 current-weather__details--text">
-                    New York, USA
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </section>
+          <section
+            class="section current-weather"
+            aria-label="current weather"
+          ></section>
 
           <!-- Forecast -->
-          <section class="section forecast" aria-labelledby="forecast-label">
-            <h2 class="title-1" id="forecast-label">5 Days Forecast</h2>
-            <div class="card card__lg forecasts__card">
-              <ul class="forcast__card--list">
-                <li class="forecast__card--item">
-                  <div class="forecast__card--icon-wrapper">
-                    <img
-                      src="images/weather-icons/02n.png"
-                      width="38"
-                      height="38"
-                      alt="overcast cloud"
-                      class="forecast__card--icon"
-                    />
-
-                    <span class="span">
-                      <p class="title-2">20&deg;</p>
-                    </span>
-                  </div>
-                  <p class="label-1">17 Feb</p>
-                  <p class="label-1">Friday</p>
-                </li>
-
-                <li class="forecast__card--item">
-                  <div class="forecast__card--icon-wrapper">
-                    <img
-                      src="images/weather-icons/13d.png"
-                      width="38"
-                      height="38"
-                      alt="overcast cloud"
-                      class="forecast__card--icon"
-                    />
-
-                    <span class="span">
-                      <p class="title-2">20&deg;</p>
-                    </span>
-                  </div>
-                  <p class="label-1">17 Feb</p>
-                  <p class="label-1">Friday</p>
-                </li>
-
-                <li class="forecast__card--item">
-                  <div class="forecast__card--icon-wrapper">
-                    <img
-                      src="images/weather-icons/11n.png"
-                      width="38"
-                      height="38"
-                      alt="overcast cloud"
-                      class="forecast__card--icon"
-                    />
-
-                    <span class="span">
-                      <p class="title-2">20&deg;</p>
-                    </span>
-                  </div>
-                  <p class="label-1">17 Feb</p>
-                  <p class="label-1">Friday</p>
-                </li>
-
-                <li class="forecast__card--item">
-                  <div class="forecast__card--icon-wrapper">
-                    <img
-                      src="images/weather-icons/50n.png"
-                      width="38"
-                      height="38"
-                      alt="overcast cloud"
-                      class="forecast__card--icon"
-                    />
-
-                    <span class="span">
-                      <p class="title-2">20&deg;</p>
-                    </span>
-                  </div>
-                  <p class="label-1">17 Feb</p>
-                  <p class="label-1">Friday</p>
-                </li>
-
-                <li class="forecast__card--item">
-                  <div class="forecast__card--icon-wrapper">
-                    <img
-                      src="images/weather-icons/09n.png"
-                      width="38"
-                      height="38"
-                      alt="overcast cloud"
-                      class="forecast__card--icon"
-                    />
-
-                    <span class="span">
-                      <p class="title-2">20&deg;</p>
-                    </span>
-                  </div>
-                  <p class="label-1">17 Feb</p>
-                  <p class="label-1">Friday</p>
-                </li>
-              </ul>
-            </div>
-          </section>
+          <section
+            class="section forecast"
+            aria-labelledby="forecast-label"
+          ></section>
         </div>
 
         <div class="right-content">
@@ -226,354 +99,14 @@
             class="section highlights"
             aria-labelledby="highlights-label"
           >
-            <div class="card card__lg">
-              <h2 class="title-2" id="highlights-label">Todays Highlights</h2>
-
-              <div class="highlights__list">
-                <div class="card card__sm highlights__card one">
-                  <h3 class="title-3">Air Quality Index</h3>
-
-                  <div class="highlights__card--wrapper">
-                    <i class="ph ph-wind"></i>
-
-                    <ul class="highlights__card--list">
-                      <li class="highlights__card--item">
-                        <p class="title-1">23.2</p>
-
-                        <p class="label-1">PM<sub>2.5</sub></p>
-                      </li>
-
-                      <li class="highlights__card--item">
-                        <p class="title-1">0.6</p>
-
-                        <p class="label-1">SO<sub>2</sub></p>
-                      </li>
-
-                      <li class="highlights__card--item">
-                        <p class="title-1">0.3</p>
-
-                        <p class="label-1">NO<sub>2</sub></p>
-                      </li>
-
-                      <li class="highlights__card--item">
-                        <p class="title-1">75.1</p>
-
-                        <p class="label-1">O<sub>3</sub></p>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <span class="badge aqi-1 label-1">Good</span>
-                </div>
-
-                <div class="card card__sm highlights__card">
-                  <h3 class="title-3">Sunrise & Sunset</h3>
-
-                  <div class="highlights__card--list grid-start">
-                    <div class="highlights__card--item">
-                      <i class="ph ph-sun"></i>
-                      <div>
-                        <p class="label-1">Sunrise</p>
-
-                        <p class="title-1">5:38 am</p>
-                      </div>
-                    </div>
-
-                    <div class="highlights__card--item">
-                      <i class="ph ph-moon"></i>
-
-                      <div>
-                        <p class="label-1">Sunset</p>
-
-                        <p class="title-1">6:40 PM</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="card card__sm highlights__card">
-                  <h3 class="title-3">Humidity</h3>
-
-                  <div class="highlights__card--wrapper">
-                    <i class="ph ph-drop"></i>
-
-                    <p class="title-1">35<sub>%</sub></p>
-                  </div>
-                </div>
-
-                <div class="card card__sm highlights__card">
-                  <h3 class="title-3">Pressure</h3>
-
-                  <div class="highlights__card--wrapper">
-                    <i class="ph ph-waves"></i>
-
-                    <p class="title-1">1019<sub>hPa</sub></p>
-                  </div>
-                </div>
-
-                <div class="card card__sm highlights__card">
-                  <h3 class="title-3">Visibility</h3>
-
-                  <div class="highlights__card--wrapper">
-                    <i class="ph ph-eye"></i>
-                    <p class="title-1">9<sub>km</sub></p>
-                  </div>
-                </div>
-
-                <div class="card card__sm highlights__card">
-                  <h3 class="title-3">Feels Like</h3>
-
-                  <div class="highlights__card--wrapper">
-                    <i class="ph ph-thermometer"></i>
-
-                    <p class="title-1 temperature">
-                      20<span class="entity">&#8451;</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="card card__lg"></div>
           </section>
 
           <!-- Hourly forcast -->
-          <section class="section hourly-forcast" aria-label="hourly forecast">
-            <h2 class="title-2">Today at</h2>
-
-            <div class="hourly-forcast__slider--container">
-              <ul class="hourly-forcast__slider--list" data-temp>
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/10d.png"
-                      width="54"
-                      loading="lazy"
-                      alt=""
-                      class="hourly-forcast__weather-icon"
-                    />
-
-                    <p class="body-3">20&deg;</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/04d.png"
-                      width="54"
-                      loading="lazy"
-                      alt=""
-                      class="hourly-forcast__weather-icon"
-                    />
-
-                    <p class="body-3">20&deg;</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/04d.png"
-                      width="54"
-                      loading="lazy"
-                      alt=""
-                      class="hourly-forcast__weather-icon"
-                    />
-
-                    <p class="body-3">20&deg;</p>
-                  </div>
-                </li>
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/04d.png"
-                      width="54"
-                      loading="lazy"
-                      alt=""
-                      class="hourly-forcast__weather-icon"
-                    />
-
-                    <p class="body-3">20&deg;</p>
-                  </div>
-                </li>
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/04d.png"
-                      width="54"
-                      loading="lazy"
-                      alt=""
-                      class="hourly-forcast__weather-icon"
-                    />
-
-                    <p class="body-3">20&deg;</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/04d.png"
-                      width="54"
-                      loading="lazy"
-                      alt=""
-                      class="hourly-forcast__weather-icon"
-                    />
-
-                    <p class="body-3">20&deg;</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/02d.png"
-                      width="54"
-                      loading="lazy"
-                      alt=""
-                      class="hourly-forcast__weather-icon"
-                    />
-
-                    <p class="body-3">20&deg;</p>
-                  </div>
-                </li>
-              </ul>
-
-              <ul class="hourly-forcast__slider--list" data-wind>
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/direction.png"
-                      width="54"
-                      loading="lazy"
-                      alt="direction"
-                      class="hourly-forcast__weather-icon"
-                      style="transform: rotate(10deg)"
-                    />
-
-                    <p class="body-3">2 km/h</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/direction.png"
-                      width="54"
-                      loading="lazy"
-                      alt="direction"
-                      class="hourly-forcast__weather-icon"
-                      style="transform: rotate(10deg)"
-                    />
-
-                    <p class="body-3">2 km/h</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/direction.png"
-                      width="54"
-                      loading="lazy"
-                      alt="direction"
-                      class="hourly-forcast__weather-icon"
-                      style="transform: rotate(10deg)"
-                    />
-
-                    <p class="body-3">2 km/h</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/direction.png"
-                      width="54"
-                      loading="lazy"
-                      alt="direction"
-                      class="hourly-forcast__weather-icon"
-                      style="transform: rotate(10deg)"
-                    />
-
-                    <p class="body-3">2 km/h</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/direction.png"
-                      width="54"
-                      loading="lazy"
-                      alt="direction"
-                      class="hourly-forcast__weather-icon"
-                      style="transform: rotate(10deg)"
-                    />
-
-                    <p class="body-3">2 km/h</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/direction.png"
-                      width="54"
-                      loading="lazy"
-                      alt="direction"
-                      class="hourly-forcast__weather-icon"
-                      style="transform: rotate(10deg)"
-                    />
-
-                    <p class="body-3">2 km/h</p>
-                  </div>
-                </li>
-
-                <li class="hourly-forcast__slider--item">
-                  <div class="card card__sm hourly-forcast__slider--card">
-                    <p class="body-3">02 PM</p>
-
-                    <img
-                      src="images/weather-icons/direction.png"
-                      width="54"
-                      loading="lazy"
-                      alt="direction"
-                      class="hourly-forcast__weather-icon"
-                      style="transform: rotate(10deg)"
-                    />
-
-                    <p class="body-3">2 km/h</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </section>
+          <section
+            class="section hourly-forcast"
+            aria-label="hourly forecast"
+          ></section>
 
           <!-- footer -->
           <footer class="footer">

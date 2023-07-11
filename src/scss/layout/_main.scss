@@ -250,6 +250,26 @@ article.container::before {
   font-weight: $weight-semiBold;
   cursor: help;
 
+  &::after {
+    content: attr(title);
+    position: absolute;
+    width: 20rem;
+    top: 100%;
+    right: 0;
+    padding: 0.8rem 1rem;
+    background-color: $background;
+    color: $white;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+
   &.aqi-1 {
     background-color: $bg-aqi-1;
     color: $on-bg-aqi-1;
