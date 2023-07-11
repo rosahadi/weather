@@ -1,7 +1,7 @@
 'use strict';
 
 import { url } from './api.js';
-import { updateWeather, error404 } from './view.js';
+import { updateWeather, error404, showLoading } from './view.js';
 const defaultLocation = '#/weather?lat=51.5073219&lon=-0.1276474'; // London
 
 const currentLocation = function () {
@@ -9,6 +9,7 @@ const currentLocation = function () {
     res => {
       const { latitude, longitude } = res.coords;
 
+      showLoading();
       updateWeather(`lat=${latitude}`, `lon=${longitude}`);
     },
     err => {

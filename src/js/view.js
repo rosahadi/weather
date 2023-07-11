@@ -42,6 +42,12 @@ const toggleSearch = () => {
 };
 addEventOnElements(searchToggles, 'click', toggleSearch);
 
+export const showLoading = () => {
+  loading.style.display = 'grid';
+};
+
+showLoading();
+
 // Search integration
 let searchTimeout = null;
 const searchTimeoutDuration = 500;
@@ -93,8 +99,9 @@ searchInput.addEventListener('input', function () {
             const target = event.currentTarget.getAttribute('href');
             window.location.href = target;
 
-            // Manually reload the page
-            location.reload();
+            showLoading();
+
+            setTimeout(() => toggleSearch(), 300);
 
             // Clear input and search result list
             searchInput.value = '';
@@ -111,14 +118,9 @@ searchInput.addEventListener('input', function () {
 // Add event listener to the search result element
 searchResult.addEventListener('click', function (e) {
   if (e.target.classList.contains('search__result--item-link')) {
-    loading.style.display = 'grid';
-    // searchView.classList.remove('active');
     setTimeout(() => toggleSearch(), 300);
   }
 });
-
-// Loading
-loading.style.display = 'grid';
 
 // Update Weather
 export const updateWeather = function (lat, lon) {
