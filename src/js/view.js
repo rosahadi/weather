@@ -42,10 +42,10 @@ const toggleSearch = () => {
 };
 addEventOnElements(searchToggles, 'click', toggleSearch);
 
+// Loading
 export const showLoading = () => {
   loading.style.display = 'grid';
 };
-
 showLoading();
 
 // Search integration
@@ -91,42 +91,38 @@ searchInput.addEventListener('input', function () {
           aria-label="${name} weather"
           data-search-toggler></a>
       `;
-
-          const link = searchItem.querySelector('[data-search-toggler]');
-          link.addEventListener('click', function (event) {
-            event.preventDefault();
-            searchResult.classList.remove('active');
-            const target = event.currentTarget.getAttribute('href');
-            window.location.href = target;
-
-            showLoading();
-
-            setTimeout(() => toggleSearch(), 300);
-
-            // Clear input and search result list
-            searchInput.value = '';
-            searchResult.innerHTML = '';
-          });
-
           list.appendChild(searchItem);
         }
+
+        searchResult.addEventListener('mousedown', handleSearchItemClick);
+        searchResult.addEventListener('touchstart', handleSearchItemClick);
       });
     }, searchTimeoutDuration);
   }
 });
 
-// Add event listener to the search result element
-searchResult.addEventListener('click', function (e) {
-  if (e.target.classList.contains('search__result--item-link')) {
-    setTimeout(() => toggleSearch(), 300);
-  }
-});
+// Add event listeners to the search result element
+function handleSearchItemClick(e) {
+  const link = e.target.closest('[data-search-toggler]');
+  if (link) {
+    e.preventDefault();
+    const target = link.getAttribute('href');
+    window.location.href = target;
+    console.log((window.location.href = target));
 
+    // Manually reload the page
+    location.reload();
+
+    // Clear input and search result list
+    searchInput.value = '';
+    // searchResult.innerHTML = '';
+  }
+}
 // Update Weather
 export const updateWeather = function (lat, lon) {
   // Render all weather data in html page
   container.classList.remove('fade-in');
-  containerArticle.classList.add('fade-in');
+  containerArticle.classList.remove('fade-in');
   errorContent.style.display = 'none';
   footerSection.style.display = 'none';
 

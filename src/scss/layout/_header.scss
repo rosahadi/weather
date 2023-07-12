@@ -52,7 +52,8 @@
   }
 
   &__wrapper > .ph-magnifying-glass {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
   }
 
   &__wrapper::before {
@@ -77,8 +78,9 @@
   &__input {
     outline: none;
     height: 8rem;
-    line-height: 8rem;
     padding-inline: 5.8rem 2rem;
+    display: flex;
+    align-items: center;
   }
 
   &__input::placeholder {
@@ -182,7 +184,8 @@
       align-items: center;
 
       & > .ph-magnifying-glass {
-        display: block;
+        visibility: visible;
+        opacity: 1;
       }
     }
 
@@ -208,6 +211,8 @@
     &:has(.search__result.active):focus-within &__input {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+      -moz-border-radius-bottomright: 0;
+      -moz-border-radius-bottomleft: 0;
     }
 
     &__result--list {

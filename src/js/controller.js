@@ -10,6 +10,7 @@ const currentLocation = function () {
       const { latitude, longitude } = res.coords;
 
       showLoading();
+
       updateWeather(`lat=${latitude}`, `lon=${longitude}`);
     },
     err => {
@@ -28,7 +29,7 @@ const routes = new Map([
 const checkHash = function () {
   const requestURL = window.location.hash.slice(1);
 
-  const [route, query] = requestURL.includes('?')
+  const [route, query] = requestURL.includes
     ? requestURL.split('?')
     : [requestURL];
 
