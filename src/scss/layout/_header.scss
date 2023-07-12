@@ -87,7 +87,10 @@
     color: $on-surface-variant-2;
   }
 
-  &__input::-webkit-search-cancel-button {
+  &__input[type='search']::-webkit-search-decoration,
+  &__input[type='search']::-webkit-search-cancel-button,
+  &__input[type='search']::-webkit-search-results-button,
+  &__input[type='search']::-webkit-search-results-decoration {
     display: none;
   }
 
